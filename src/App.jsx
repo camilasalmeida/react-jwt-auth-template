@@ -7,13 +7,13 @@ import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import SignupForm from './components/SignupForm/SignupForm'
 import SigninForm from './components/SigninForm/SigninForm';
+import * as authService from '../src/services/authService';                         // Import the authservice component to SET the default value of our user in state. 
 
 const App = () => {
-  const [user, setUser] = useState()
+  const [user, setUser] = useState(authService.getUser());                         // Using `authService.getUser()` from the authService. 
 
 
-
-  //---------------------------------------------------\\
+  //---------------------------------------------------------------------\\
   return (
     <>
       <NavBar user={user} />
