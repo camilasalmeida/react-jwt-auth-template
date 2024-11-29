@@ -9,14 +9,19 @@ import SignupForm from './components/SignupForm/SignupForm'
 import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService';                         // Import the authservice component to SET the default value of our user in state. 
 
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser());                         // Using `authService.getUser()` from the authService. 
 
+const handleSignout = () => {
+  authService.signout()
+  setUser(null)
+}
 
   //---------------------------------------------------------------------\\
   return (
     <>
-      <NavBar user={user} />
+      <NavBar user={user} handleSignout={handleSignout} />                        
       <Routes>
         { user ? (
           <Route path="/" element={<Dashboard user={user} />} />

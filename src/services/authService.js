@@ -61,8 +61,13 @@ const getUser = () => {                                                       //
     console.log(user);
 }
 
+const signout = () => {                                                       // Method to signOut users.
+    localStorage.removeItem('token');
+}
+
 export {
     signup,
     signin,
-    getUser
+    getUser,
+    signout
 };
